@@ -11,12 +11,13 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
-    data.origem='landing-page';
+    data.origem='landing-page'; data.consentimento=form.elements.consentimento.checked;
     function done(){ form.hidden=true; ok.hidden=false; form.reset(); }
     if(!LEADS_ENDPOINT){ console.info('Lead (preview, nao enviado):',data); done(); return; }
     sendBtn.disabled=true; err.hidden=true;
     fetch(LEADS_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){ if(!r.ok){ throw new Error(r.status); } done(); })
+      .then(function(r){ if(!r.ok){ throw new Error(r.status); } return r.json(); })
+      .then(function(j){ if(!j||!j.ok){ throw new Error('x'); } done(); })
       .catch(function(){ err.hidden=false; })
       .then(function(){ sendBtn.disabled=false; });
   });
