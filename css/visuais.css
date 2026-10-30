@@ -1,0 +1,59 @@
+/* Blocos visuais: cenas ilustradas, etapas do método e cartões de caso. */
+.v-stack{display:flex;flex-direction:column;gap:40px}
+.v-two{display:flex;flex-wrap:wrap;gap:24px}
+.v-card{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;background:var(--surf);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .15s}
+.v-card:hover{border-color:var(--g)}
+.v-img{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0B1712}
+.v-body{display:flex;flex-direction:column;gap:14px;padding:24px;flex:1}
+.v-body h3{font-size:22px;line-height:30px}
+.v-chips{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.v-chips li{display:flex;gap:10px;align-items:center;color:var(--tx);font-weight:500;font-size:16px;line-height:22px}
+.v-chips li::before{content:"×";flex:none;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(207,34,46,.12);color:var(--k);font-weight:700;font-size:15px;line-height:1}
+.v-solve{display:flex;flex-wrap:wrap;align-items:center;gap:32px;background:var(--surf);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.v-solve .v-img{flex:1 1 360px;max-width:520px}
+.v-solve-t{flex:1 1 320px;display:flex;flex-direction:column;gap:14px;padding:24px 32px 24px 8px}
+.v-big{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:600;font-size:clamp(40px,7vw,56px);line-height:1.05;color:var(--gt);letter-spacing:-.02em}
+.v-solve-t p{margin:0;font-size:18px;line-height:28px}
+.v-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+.v-steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.v-steps li{position:relative;display:flex;flex-direction:column;gap:8px;padding:20px 18px;background:var(--surf);border:1px solid var(--line);border-radius:12px}
+.v-steps li:hover{border-color:var(--g)}
+.v-n{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:600;font-size:14px;color:var(--tx2)}
+.v-ic{width:36px;height:36px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:rgba(26,127,55,.10);color:var(--g)}
+:root[data-theme="dark"] .v-ic{background:rgba(63,185,80,.14)}
+.v-steps strong{font-size:17px;line-height:24px;font-weight:700}
+.v-steps span.v-t{color:var(--tx2);font-size:15px;line-height:22px}
+
+.v-cases{display:flex;flex-wrap:wrap;gap:24px}
+.v-case{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;background:var(--surf);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .15s}
+.v-case:hover{border-color:var(--g)}
+.v-viz{display:flex;align-items:center;gap:20px;min-height:132px;padding:20px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
+.v-case .v-body{gap:10px;padding:20px 24px 22px}
+.v-case h3{font-size:20px;line-height:28px}
+.v-cap{display:flex;flex-direction:column;gap:2px;min-width:0}
+.v-cap b{font-size:16px;line-height:22px}
+.v-cap span{color:var(--tx2);font-size:15px;line-height:22px}
+.v-donut{flex:none;width:92px;height:92px;border-radius:50%;background:conic-gradient(var(--g) calc(var(--p)*1%),var(--line) 0);display:flex;align-items:center;justify-content:center;position:relative}
+.v-donut::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--bg)}
+.v-donut b{position:relative;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:20px;color:var(--gt)}
+.v-dots{flex:none;display:grid;grid-template-columns:repeat(3,22px);gap:8px}
+.v-dots i{width:22px;height:22px;border-radius:50%;background:var(--g);opacity:.85}
+.v-stat{flex:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:600;font-size:40px;line-height:1;color:var(--gt);letter-spacing:-.02em}
+.v-meter{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
+.v-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.v-bar::after{content:"";display:block;height:100%;width:calc(var(--p)*1%);background:var(--g);border-radius:999px}
+.v-hb{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.v-hb div{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--tx2)}
+.v-hb em{font-style:normal;flex:none;width:104px}
+.v-hb .v-bar{flex:1;height:12px}
+.v-hb b{flex:none;width:46px;text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;color:var(--tx);font-size:14px}
+.v-hb .hot .v-bar::after{background:var(--k)}
+
+.v-avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--g)}
+@media (max-width:560px){
+  .v-body{padding:20px}
+  .v-solve-t{padding:0 20px 24px}
+  .v-viz{flex-wrap:wrap}
+  .v-hb em{width:78px}
+}
